@@ -16,6 +16,7 @@ jobs:
 - name: hello-rich
   plan:
   - get: demo-source
+    passed: [hello-world]
   - task: hello-person
     params:
       - NAME: "Rich"
