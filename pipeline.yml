@@ -12,3 +12,11 @@ jobs:
   - get: demo-source
   - task: hello-world
     file: demo-source/tasks/hello-world.yml
+
+- name: hello-rich
+  plan:
+  - get: demo-source
+  - task: hello-person
+    params:
+      - NAME: "Rich"
+    file: demo-source/tasks/hello-person.yml
