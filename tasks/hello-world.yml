@@ -1,0 +1,11 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: docker.artifactory.homedepot.com/flow/java
+    tag: "latest"
+inputs:
+  - name: demo-source
+run:
+  path: demo-source/scripts/hello-world.sh

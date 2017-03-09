@@ -1,0 +1,14 @@
+resources:
+  - name: demo-source
+    type: git
+    source:
+      uri: git@github.homedepot.com:Pricing/concourse-demo.git
+      branch: master
+      private_key: {{github-private-key}}
+
+jobs:
+- name: hello-world
+  plan:
+  - get: demo-source
+  - task: hello-world
+    file: demo-source/tasks/hello-world.yml
