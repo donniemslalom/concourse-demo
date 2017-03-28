@@ -5,17 +5,25 @@ resources:
       uri: git@github.homedepot.com:Pricing/concourse-demo.git
       branch: master
       private_key: {{github-private-key}}
+  - name: 10s
+    type: time
+    source: {interval: 10s}
 
 jobs:
 - name: hello-world
   plan:
   - get: demo-source
+  - get: 10s
+    trigger: true
   - task: hello-world
     file: demo-source/tasks/hello-world.yml
 
 - name: hello-rich
   plan:
   - get: demo-source
+    passed: [hello-world]
+  - get: 10s
+    trigger: true
     passed: [hello-world]
   - task: hello-person
     params:
