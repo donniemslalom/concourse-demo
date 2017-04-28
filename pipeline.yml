@@ -2,7 +2,7 @@ resources:
   - name: demo-source
     type: git
     source:
-      uri: git@github.homedepot.com:Pricing/concourse-demo.git
+      uri: git@github.com:donniemslalom/concourse-demo.git
       branch: master
       private_key: {{github-private-key}}
   - name: 10s
